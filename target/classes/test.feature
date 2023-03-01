@@ -13,4 +13,4 @@ Feature: Test MIS
       Then Verify if date "<date>" is shown
       Examples:
         | username | password | date |
-      |arpit.mishra|Gemini@123|1 Jan |
+      |arpit.mishra|Gemini@123|10 Dec |

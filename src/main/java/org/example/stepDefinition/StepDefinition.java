@@ -64,7 +64,7 @@ public class StepDefinition {
              String curr_month = (DriverAction.getElementText(Locators.curr_month_year)).split(" ")[0];
              String curr_year = (DriverAction.getElementText(Locators.curr_month_year)).split(" ")[1];
             if(months.indexOf(month)>months.indexOf(curr_month)){   // future month
-                int clicks = months.indexOf(curr_month) - months.indexOf(month);
+                int clicks = months.indexOf(month) - months.indexOf(curr_month);
                 System.out.println("Clicks are "+clicks);
                 for(int i=0;i<clicks;i++){
                     if(DriverAction.isExist(Locators.next_month))
