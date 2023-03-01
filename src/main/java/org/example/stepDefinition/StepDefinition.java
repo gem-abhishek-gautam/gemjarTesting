@@ -80,7 +80,7 @@ public class StepDefinition {
                 for(int i=0;i<clicks;i++){
                     if(DriverAction.isExist(Locators.prev_month)){
                         DriverAction.click(Locators.prev_month);
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                     }
 
                 }
@@ -100,6 +100,7 @@ public class StepDefinition {
     @Then("Verify name {string} in profile card")
     public void verifyNameInProfileCard(String name) {
         DriverAction.waitUntilElementAppear(Locators.userCard,10);
+        DriverAction.waitUntilElementAppear(Locators.profileName,10);
         if(DriverAction.isExist(Locators.userCard) && DriverAction.getElementText(Locators.profileName).equals(name)) {
             GemTestReporter.addTestStep("Profile card visibility","Name matched", STATUS.PASS,DriverAction.takeSnapShot());
         }
