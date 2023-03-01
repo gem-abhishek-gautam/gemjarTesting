@@ -67,18 +67,25 @@ public class StepDefinition {
                 int clicks = months.indexOf(month) - months.indexOf(curr_month);
                 System.out.println("Clicks are "+clicks);
                 for(int i=0;i<clicks;i++){
-                    if(DriverAction.isExist(Locators.next_month))
+                    if(DriverAction.isExist(Locators.next_month)){
                         DriverAction.click(Locators.next_month);
+                        Thread.sleep(1000);
+                    }
+
                 }
             }
             else {
                 int clicks = months.indexOf(curr_month) - months.indexOf(month);
                 System.out.println("Clicks are "+clicks);
                 for(int i=0;i<clicks;i++){
-                    if(DriverAction.isExist(Locators.prev_month))
+                    if(DriverAction.isExist(Locators.prev_month)){
                         DriverAction.click(Locators.prev_month);
+                        Thread.sleep(1000);
+                    }
+
                 }
             }
+
             Thread.sleep(3000);
             if((DriverAction.getElementText(Locators.curr_month_year)).contains(month)){
                 GemTestReporter.addTestStep("Month Visibility","Month visible", STATUS.PASS,DriverAction.takeSnapShot());
@@ -88,5 +95,14 @@ public class StepDefinition {
 
         } else GemTestReporter.addTestStep("Calendar Visibility","Calendar not visible", STATUS.FAIL,DriverAction.takeSnapShot());
 
+    }
+
+    @Then("Verify name {string} in profile card")
+    public void verifyNameInProfileCard(String name) {
+        DriverAction.waitUntilElementAppear(Locators.userCard,10);
+        if(DriverAction.isExist(Locators.userCard) && DriverAction.getElementText(Locators.profileName).equals(name)) {
+            GemTestReporter.addTestStep("Profile card visibility","Name matched", STATUS.PASS,DriverAction.takeSnapShot());
+        }
+        else GemTestReporter.addTestStep("Profile card visibility","Profile card not visible", STATUS.FAIL,DriverAction.takeSnapShot());
     }
 }

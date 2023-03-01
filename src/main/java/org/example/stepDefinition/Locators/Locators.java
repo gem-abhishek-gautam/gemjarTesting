@@ -11,6 +11,7 @@ public class Locators {
     public static By prev_month = By.xpath("//button[@aria-label='prev']");
     public static By next_month = By.xpath("//button[@aria-label='next']");
     public static By curr_month_year = By.xpath("//div[@id='employeeCalendar']//div[@class='fc-center']");
-
+    public static By profileName = By.xpath("//div[@id='userName']");
+    public static By userCard = By.xpath("//div[@class='widget-user-stat']");
 
 }

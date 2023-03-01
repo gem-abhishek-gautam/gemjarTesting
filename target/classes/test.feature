@@ -14,3 +14,10 @@ Feature: Test MIS
       Examples:
         | username | password | date |
       |arpit.mishra|Gemini@123|10 Dec |
+
+    Scenario Outline: Check Profile Card
+      Given Enter login credentials where username is "<username>" and "<password>"
+      Then Verify name "<name>" in profile card
+      Examples:
+        | username | password | name |
+        |arpit.mishra|Gemini@123|Arpit Mishra|
