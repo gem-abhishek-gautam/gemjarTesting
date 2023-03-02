@@ -1,0 +1,16 @@
+{
+  "environment": "prod",
+  "projectName": "GEMJAR-SETUP-PROJECT",
+  "reportName": "Test Report",
+  "gemjarUserName": "ab.gautam",
+  "gemjarToken": "7b57888b-43ea-4327-a1cb-e64945e112cd1676871921514",
+  "jewelEntryUrl": "https://apis.gemecosystem.com/enter-point",
+  "gemjarSubID": "test_id",
+  "glueCode": "org.example.stepDefinition",
+  "prod": {
+    "browserName": "Chrome",
+    "launchUrl": "https://mymis.geminisolutions.com/",
+    "browserTimeout": 10
+  }
+}
+
