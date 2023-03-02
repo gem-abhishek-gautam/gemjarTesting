@@ -89,7 +89,6 @@ public class StepDefinition {
             Thread.sleep(3000);
             if((DriverAction.getElementText(Locators.curr_month_year)).contains(month)){
                 GemTestReporter.addTestStep("Month Visibility","Month visible", STATUS.PASS,DriverAction.takeSnapShot());
-
             } else GemTestReporter.addTestStep("Month Visibility","Month not visible", STATUS.FAIL,DriverAction.takeSnapShot());
 
 
