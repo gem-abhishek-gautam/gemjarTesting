@@ -65,15 +65,13 @@ public class StepDefinition {
 
 
              if(Integer.parseInt(year)>Integer.parseInt(curr_year)) {
-                 for(int j=0;j<Integer.parseInt(year)-Integer.parseInt(curr_year);j++)
-                 for(int i=0;i<12;i++){
+                    for(int i=0;i<12*(Integer.parseInt(year)-Integer.parseInt(curr_year));i++){
                      if(DriverAction.isExist(Locators.next_month)){
                          DriverAction.click(Locators.next_month);
                      }
                  }
              } else {
-                 for(int j=0;j<Integer.parseInt(curr_year)-Integer.parseInt(year);j++)
-                 for(int i=0;i<12;i++){
+                    for(int i=0;i<12*Integer.parseInt(curr_year)-Integer.parseInt(year);i++){
                      if(DriverAction.isExist(Locators.prev_month)){
                          DriverAction.click(Locators.prev_month);
                      }
