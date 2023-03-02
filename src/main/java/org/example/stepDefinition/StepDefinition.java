@@ -54,22 +54,37 @@ public class StepDefinition {
 
     @Then("Verify if date {string} is shown")
     public void verifyIfDateShown(String date) throws InterruptedException {
-
         DriverAction.waitUntilElementAppear(Locators.calendar,20);
+        DriverAction.waitSec(2);
         List<String> months = List.of("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
         if(DriverAction.isExist(Locators.calendar)){
              String month = date.split(" ")[1];
-             System.out.println("month given "+month);
-//             String year = date.split(" ")[1];
+             String year = date.split(" ")[2];
              String curr_month = (DriverAction.getElementText(Locators.curr_month_year)).split(" ")[0];
-             String curr_year = (DriverAction.getElementText(Locators.curr_month_year)).split(" ")[1];
+             String curr_year = (DriverAction.getElementText(Locators.curr_month_year)).split(" ")[1].trim();
+
+
+             if(Integer.parseInt(year)>Integer.parseInt(curr_year)) {
+                 for(int j=0;j<Integer.parseInt(year)-Integer.parseInt(curr_year);j++)
+                 for(int i=0;i<12;i++){
+                     if(DriverAction.isExist(Locators.next_month)){
+                         DriverAction.click(Locators.next_month);
+                     }
+                 }
+             } else {
+                 for(int j=0;j<Integer.parseInt(curr_year)-Integer.parseInt(year);j++)
+                 for(int i=0;i<12;i++){
+                     if(DriverAction.isExist(Locators.prev_month)){
+                         DriverAction.click(Locators.prev_month);
+                     }
+                 }
+             }
             if(months.indexOf(month)>months.indexOf(curr_month)){   // future month
                 int clicks = months.indexOf(month) - months.indexOf(curr_month);
                 System.out.println("Clicks are "+clicks);
                 for(int i=0;i<clicks;i++){
                     if(DriverAction.isExist(Locators.next_month)){
                         DriverAction.click(Locators.next_month);
-                        Thread.sleep(1000);
                     }
 
                 }
@@ -80,11 +95,12 @@ public class StepDefinition {
                 for(int i=0;i<clicks;i++){
                     if(DriverAction.isExist(Locators.prev_month)){
                         DriverAction.click(Locators.prev_month);
-                        Thread.sleep(500);
                     }
 
                 }
             }
+
+
 
             Thread.sleep(3000);
             if((DriverAction.getElementText(Locators.curr_month_year)).contains(month)){
