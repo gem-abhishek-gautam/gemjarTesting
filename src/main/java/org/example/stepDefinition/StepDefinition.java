@@ -56,7 +56,8 @@ public class StepDefinition {
     public void verifyIfDateShown(String date) throws InterruptedException {
         DriverAction.waitUntilElementAppear(Locators.calendar,20);
         DriverAction.waitSec(2);
-        List<String> months = List.of("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+//        List<String> months = List.of("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+        List<String> months = new ArrayList<>();
         if(DriverAction.isExist(Locators.calendar)){
              String month = date.split(" ")[1];
              String year = date.split(" ")[2];
@@ -77,7 +78,7 @@ public class StepDefinition {
                      }
                  }
              }
-            if(months.indexOf(month)>months.indexOf(curr_month)){   // future month
+            if(months.indexOf(month)>months.indexOf(curr_month)){
                 int clicks = months.indexOf(month) - months.indexOf(curr_month);
                 System.out.println("Clicks are "+clicks);
                 for(int i=0;i<clicks;i++){
