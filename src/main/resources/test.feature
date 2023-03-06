@@ -13,7 +13,7 @@ Feature: Test MIS
       Then Verify if date "<date>" is shown
       Examples:
         | username | password | date |
-      |arpit.mishra|Gemini@123|10 Dec 2025|
+      |arpit.mishra|Gemini@123|10 Dec 2024|
 
     Scenario Outline: Check Profile Card
       Given Enter login credentials where username is "<username>" and "<password>"
