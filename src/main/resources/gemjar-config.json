@@ -10,7 +10,7 @@
   "emailBCC": "",
   "jewelEntryUrl": "https://apis.gemecosystem.com/enter-point",
   "gemjarSubID": "test_id",
-  "glueCode": "org.example.stepDefinition",
+  "glueCode": "org.example.stepDefinition.StepDefinition",
   "prod": {
     "browserName": "Chrome",
     "launchUrl": "https://mymis.geminisolutions.com/",
