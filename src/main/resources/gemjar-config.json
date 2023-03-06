@@ -10,6 +10,7 @@
   "emailBCC": "",
   "jewelEntryUrl": "https://apis-beta.gemecosystem.com/enter-point",
   "gemjarSubID": "test_id",
+  "feature":"src/main/resources/test.feature",
   "glueCode": "org.example.stepDefinition.StepDefinition",
   "prod": {
     "browserName": "Chrome",
